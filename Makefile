@@ -1,8 +1,5 @@
-build/football: build src/football.c
-	gcc src/football.c -o build/football
-
-build:
-	mkdir build
+football: src/football.c
+	gcc src/football.c -o football
 
 clean:
-	rm -rf build
+	rm football
