@@ -1,8 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Store values of potential plays for reference
 const int score_values[5] = {2,3,6,7,8};
 
+/**
+ * Take in a play combo and output the score.
+ * 
+ * @param plays An array of length 5 containing the number of each
+ *              play in order of value.
+ * @return The calculated score.
+ */ 
 int count_score (int * plays) {
     int tally = 0;
 
@@ -13,6 +21,13 @@ int count_score (int * plays) {
     return tally;
 }
 
+/**
+ * Print all play combos that add up to the given score.
+ * 
+ * @param score The score to calculate for.
+ * @param plays An array of length 5 with the counts of initial plays.
+ * @param current_depth Used for recursive calls, set to 0.
+ */
 void print_sum_combos (int score, int * plays, int current_depth) {
     int current = count_score(plays);
 
@@ -50,6 +65,7 @@ int main () {
             continue;
         }
 
+        // Print the combos if not stopping
         if (score >= 2) {
             int plays[5] = {0,0,0,0,0};
             printf("Possible combinations of scoring plays if a team's score is %d:\n", score);
